@@ -7,7 +7,7 @@ LABEL maintainer="1673590+5Ub-Z3r0@users.noreply.github.com"
 RUN apk update && apk add make gcc git libc-dev openssh-client
 
 WORKDIR /tmp
-RUN git clone https://github.com/pcherenkov/udpxy.git \
+RUN git clone https://github.com/arebert20/udpxy.git \
     && cd udpxy/chipmunk \
     && make && make install
 
