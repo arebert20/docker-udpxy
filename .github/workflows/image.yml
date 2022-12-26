@@ -21,9 +21,9 @@ jobs:
         with:
           version: latest
       - name: Login to Docker Hub
-        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}"
       - name: build the image
         run: |
           docker buildx build --push \
-            --tag quyetwru/udpxy:latest \
+            --tag ${{ secrets.DOCKER_USERNAME }}/udpxy:latest \
             --platform linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 .
