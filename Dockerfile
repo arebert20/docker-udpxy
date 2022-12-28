@@ -18,5 +18,8 @@ COPY --from=builder /usr/local/bin/udpxrec /usr/local/bin/udpxrec
 
 EXPOSE 4000/tcp
 
+# serve max 100 CCU
+# Renew subscription each 180 secs (i.e. 3 mins)
+
 ENTRYPOINT ["/usr/local/bin/udpxy"]
-CMD ["-vTS", "-p", "4000"]
+CMD ["-vTS", "-p", "4000", "-M", "180", "-c", "100"]
