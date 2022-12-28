@@ -19,7 +19,7 @@ jobs:
          # username: ${{ secrets.DOCKERHUB_USERNAME }}
           #password: ${{ secrets.DOCKERHUB_TOKEN }}
         #run: echo ${{ env.DOCKER_PASSWORD }} | docker login -u ${{ env.DOCKER_USERNAME }} --password-stdin
-        run: echo "${{ env.DOCKER_PASSWORD }}" | docker login -u "${{ env.DOCKER_USERNAME }}" --password-stdin
+        run: echo "${{ env.DOCKER_PASSWORD }}" | docker login -u "${{ env.DOCKER_USERNAME }}"
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
