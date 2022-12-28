@@ -24,7 +24,7 @@ jobs:
       with:
        version: latest
     - name: login to docker hub
-      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}"
+      run: echo "${{ env.DOCKER_PASSWORD }}" | docker login -u "${{ env.DOCKER_USERNAME }}"
       #run: docker login -u "quyetwru" -p "********"
     - uses: actions/checkout@v3
     - name: Build the Docker image
