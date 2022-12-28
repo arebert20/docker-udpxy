@@ -24,7 +24,7 @@ jobs:
       with:
        version: latest
     - name: login to docker hub
-      run: echo | set /p="${{ secrets.DOCKER_PASSWORD }}" | docker login --username "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      run: echo | set /p="Az@741852" | docker login --username "quyetwru" --password-stdin
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker buildx build --push --file Dockerfile --tag quyetwru/udpxy:latest --platform linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 .
