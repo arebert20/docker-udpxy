@@ -27,10 +27,19 @@ jobs:
       run: echo "${{ env.DOCKER_PASSWORD }}" | docker login -u "${{ env.DOCKER_USERNAME }}"
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      #run: docker buildx build . --file Dockerfile --platform linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 --tag quyetwru/udpxy
+      run: docker buildx build . --file Dockerfile --platform linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 --tag quyetwru/udpxy
     #- name: docker push
+    - name: Build and push
+      #id: docker_build
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        #file: Dockerfile
+        platform: linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
+        push: true
+        tags: quyetwru/udpxy:latest
       #run: docker push quyetwru/udpxy
-      run: |
-          docker buildx build --push \
-            --tag registry-1.docker.io/quyetwru/udpxy:latest \
-            --platform linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 .
+      #run: |
+      #    docker buildx build --push \
+      #      --tag registry-1.docker.io/quyetwru/udpxy:latest \
+      #      --platform linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 .
