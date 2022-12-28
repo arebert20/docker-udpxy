@@ -14,15 +14,15 @@ jobs:
 
     steps:
     - name: Set up QEMU
-       id: qemu
-       uses: docker/setup-qemu-action@v1
+      id: qemu
+      uses: docker/setup-qemu-action@v1
     - name: checkout code
-       uses: actions/checkout@v2
+      uses: actions/checkout@v2
     - name: install buildx
-       id: buildx
-       uses: docker/setup-buildx-action@v1
+      id: buildx
+      uses: docker/setup-buildx-action@v1
       with:
-       version: latest
+      version: latest
     - name: login to docker hub
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
     - uses: actions/checkout@v3
