@@ -22,4 +22,4 @@ EXPOSE 4000/tcp
 # Renew subscription each 180 secs (i.e. 3 mins)
 
 ENTRYPOINT ["/usr/local/bin/udpxy"]
-CMD ["-vTS", "-p", "4000", "-M", "180", "-c", "100", "-B","4096"]
+CMD ["-vTS", "-p", "2112", "-M", "180", "-c", "100", "-B","4096"]
