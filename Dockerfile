@@ -16,10 +16,10 @@ FROM ${ARCH}alpine:latest
 COPY --from=builder /usr/local/bin/udpxy /usr/local/bin/udpxy
 COPY --from=builder /usr/local/bin/udpxrec /usr/local/bin/udpxrec
 
-EXPOSE 4000/tcp
+EXPOSE 8383/tcp
 
 # serve max 100 CCU
 # Renew subscription each 180 secs (i.e. 3 mins)
 
 ENTRYPOINT ["/usr/local/bin/udpxy"]
-CMD ["-vTS", "-p", "2112", "-M", "180", "-c", "100", "-B","4096"]
+CMD ["-vTS", "-p", "8383", "-M", "180", "-c", "100", "-B","4096"]
